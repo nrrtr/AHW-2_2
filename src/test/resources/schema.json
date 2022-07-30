@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "args",
+    "data",
+    "files",
+    "form",
+    "headers",
+    "json",
+    "url"
+  ],
+  "properties": {
+    "args": {
+      "type": "object"
+    },
+    "data": {
+      "type": "string",
+      "enum": ["dsa","qwe","asd"]
+    },
+    "files": {
+      "type": "object"
+    },
+    "form": {
+      "type": "object"
+    },
+    "headers": {
+      "type": "object"
+    },
+    "json": {
+      "type": "null"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
