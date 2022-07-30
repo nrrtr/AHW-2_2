@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.hamcrest.Matchers.*;
 
 public class Post {
     @Test
@@ -50,6 +51,21 @@ public class Post {
                 .then()
                 .statusCode(200)
                 .body(matchesJsonSchemaInClasspath("schema.json"))
+        ;
+    }
+    @Test
+    public void postTestWithOutSchema() {
+        given()
+                .baseUri("https://postman-echo.com")
+                .contentType("text/plain; charset=UTF-8")
+                .body("blablabla")
+
+                .when()
+                .post("/post")
+
+                .then()
+                .statusCode(200)
+                .body("data" , equalTo("blablabla"))
         ;
     }
 }
